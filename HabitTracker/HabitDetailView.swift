@@ -18,5 +18,10 @@ struct HabitDetailView: View {
 }
 
 #Preview {
-    HabitDetailView(habit: , habits: Habits())
+    let sampleHabit = Habit(title: "Code", description: "Code every day", completionCount: 0)
+    let habits = Habits()
+    
+    habits.items.append(sampleHabit)
+    
+    return HabitDetailView(habit: sampleHabit, habits: habits)
 }
