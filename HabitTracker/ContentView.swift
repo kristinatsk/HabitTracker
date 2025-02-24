@@ -17,22 +17,25 @@ struct ContentView: View {
                 List {
                     ForEach(habits.items) { habit in
                         NavigationLink(destination: HabitDetailView(habit: habit, habits: habits)) {
-                            VStack {
+                            VStack(alignment: .leading) {
                                 Text("\(habit.title)")
+                                    .font(.headline)
                                 Text("\(habit.description)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
                     .onDelete(perform: deleteItem)
                 }
-            
+                .navigationTitle("Habit Tracker")
+                .toolbar {
+                    Button("Add item", systemImage: "plus") {
+                        showAddHabitView = true
+                    }
+                }
         }
-        .navigationTitle("Habit Tracker")
-        .toolbar {
-            Button("Add item", systemImage: "plus") {
-                showAddHabitView = true
-            }
-        }
+
         .sheet(isPresented: $showAddHabitView) {
             AddHabitView(habits: habits)
         }
@@ -45,4 +48,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }

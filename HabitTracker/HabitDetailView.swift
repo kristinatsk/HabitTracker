@@ -24,4 +24,5 @@ struct HabitDetailView: View {
     habits.items.append(sampleHabit)
     
     return HabitDetailView(habit: sampleHabit, habits: habits)
+        .preferredColorScheme(.dark)
 }
