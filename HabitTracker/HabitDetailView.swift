@@ -13,10 +13,24 @@ struct HabitDetailView: View {
     
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            Text("\(habit.title)")
+            Text("\(habit.description)")
+            
+            Button("Increment") {
+                if let index = habits.items.firstIndex(of: habit) {
+                    var newHabit = habit
+                    newHabit.completionCount += 1
+                    habits.items[index] = newHabit
+                }
+            }
+        }
     }
 }
 
+
+
+/*
 #Preview {
     let sampleHabit = Habit(title: "Code", description: "Code every day", completionCount: 0)
     let habits = Habits()
@@ -26,3 +40,4 @@ struct HabitDetailView: View {
     return HabitDetailView(habit: sampleHabit, habits: habits)
         .preferredColorScheme(.dark)
 }
+*/
