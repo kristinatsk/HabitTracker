@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct HabitDetailView: View {
-    var habit: Habit
+    @State var habit: Habit
     @ObservedObject var habits: Habits
     
     
     var body: some View {
         VStack(spacing: 20) {
             Text("\(habit.title)")
+                .font(.title)
+                .fontWeight(.bold)
             Text("\(habit.description)")
             Text("Completion count: \(habit.completionCount)")
             
