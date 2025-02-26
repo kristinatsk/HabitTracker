@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HabitDetailView: View {
-    @State var habit: Habit
-    @ObservedObject var habits: Habits
+    var habit: Habit
+    var habits: Habits
     
     
     var body: some View {
@@ -25,6 +25,7 @@ struct HabitDetailView: View {
                     var newHabit = habit
                     newHabit.completionCount += 1
                     habits.items[index] = newHabit
+                    habits.save()
                 }
             }
         }

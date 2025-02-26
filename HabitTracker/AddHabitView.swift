@@ -14,7 +14,7 @@ struct AddHabitView: View {
     @State private var habitsDescription: String = ""
     @State private var completionAmount = 0
     
-    @ObservedObject var habits: Habits
+    var habits: Habits
     
     var body: some View {
         NavigationStack {

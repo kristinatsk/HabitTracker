@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var habits = Habits()
+    var habits = Habits()
     @State private var showAddHabitView = false
     
     var body: some View {

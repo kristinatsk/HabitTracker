@@ -15,7 +15,8 @@ struct Habit: Identifiable, Codable, Equatable {
 }
 
 
-class Habits: ObservableObject {
+@Observable
+class Habits {
     var items: [Habit]  {
         didSet {
             if let encoded = try? JSONEncoder().encode(items) {
@@ -33,4 +34,10 @@ class Habits: ObservableObject {
         }
         items = []
     }
+    
+    func save() {
+            if let encoded = try? JSONEncoder().encode(items) {
+                UserDefaults.standard.set(encoded, forKey: "Habits")
+            }
+        }
 }
