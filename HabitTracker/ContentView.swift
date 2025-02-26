@@ -23,6 +23,9 @@ struct ContentView: View {
                                 Text("\(habit.description)")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
+                                Text("Completion count: \(habit.completionCount)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
                             }
                         }
                     }

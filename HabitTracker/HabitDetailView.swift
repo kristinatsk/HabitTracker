@@ -16,6 +16,7 @@ struct HabitDetailView: View {
         VStack(spacing: 20) {
             Text("\(habit.title)")
             Text("\(habit.description)")
+            Text("Completion count: \(habit.completionCount)")
             
             Button("Increment") {
                 if let index = habits.items.firstIndex(of: habit) {
